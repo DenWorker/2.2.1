@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS users
+(
+    id        BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name      VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email     VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS cars
+(
+    id      BIGINT AUTO_INCREMENT PRIMARY KEY,
+    model   VARCHAR(100) NOT NULL,
+    series  INT          NOT NULL,
+    user_id BIGINT,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE SET NULL
+);
+
+
+
+DROP TABLE IF EXISTS cars;
+DROP TABLE IF EXISTS users;
